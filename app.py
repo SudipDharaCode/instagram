@@ -23,6 +23,17 @@ The comment can be from **Instagram, Facebook, YouTube, Twitter, or any platform
 ### **What is Commercial Intent?**
 A comment has commercial intent if it shows interest in **buying, ordering, pricing, availability, delivery, or discounts**.
 
+### **Special Instructions:**
+- If the comment is empty("") or only contains symbols (like a single question mark, emoji, etc.), return **False**.
+- Do not assume commercial intent unless there's a clear indication of interest in a product or service.
+
+### Rules for Detection:
+1. The comment **must clearly express** interest in a product or service.
+2. If the comment is empty, or only contains punctuation or meaningless characters (e.g., `?`, `...`, `!`,"", emojis, or just whitespace), or only space or any text is writen , it does **not** have commercial intent.
+3. If the comment is only space or nothing is writen .  it does **not** have commercial intent return **False**.
+4. Do **not** assume commercial intent unless it is very clear from the comment.
+5. Ignore generic compliments, greetings, or unrelated chatter.
+
 User text : {text}
 
 Example of Output :
@@ -71,5 +82,5 @@ async def analyze_comment(data: CommentInput):
 # Run with: uvicorn filename:app --reload
 # ---------------------------
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True) 
+    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True) 
 
