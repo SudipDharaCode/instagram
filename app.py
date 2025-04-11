@@ -72,6 +72,7 @@ class CommentInput(BaseModel):
 @app.post("/analyze")
 async def analyze_comment(data: CommentInput):
     try:
+        if not data.text: return {"commercial_intent": false}
         output = chain.invoke({"text": data.text})
         result = output.content.split('"Type": "')[1].split('"')[0]
         return {"commercial_intent": result}
