@@ -13,7 +13,7 @@ import uvicorn
 
 
 
-chat = ChatGroq(temperature=0, groq_api_key="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", model_name="llama-3.3-70b-versatile")
+chat = ChatGroq(temperature=0, groq_api_key="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", model_name="llama-3.3-70b-versatile")
 
 
 system_prompt = """
